@@ -20,17 +20,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-/* Admin HomePage route */
-Route::get('/', 'HomeController@index')->name('home');
-
 //Admin route
 Route::middleware('auth')
-    ->namespace('Admin')
-    ->name('admin.')
-    ->prefix('admin')
-    ->group(
-        function () {
+->namespace('Admin')
+->name('admin.')
+->prefix('admin')
+->group(
+    function () {
+        /* Admin HomePage route */
+        Route::get('/', 'HomeController@index')->name('home');
 
-            //Product route
-            Route::resource('/products', 'ProductsController');
+        //Product route
+        Route::resource('/products', 'ProductsController');
     });
+
+//Home front-office route
+Route::get('{any?}', function () {
+    return view('guests.home');
+})->where('any', '.*');
