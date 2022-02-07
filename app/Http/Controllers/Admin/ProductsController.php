@@ -69,9 +69,14 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $product = Product::where('slug', $slug)->first(); //in caso di doppione, vuol dire che prende il primo che trova
+        if($product) {
+            return view('admin.products.show', compact('product'));
+        }
+        abort(404);
+
     }
 
     /**
