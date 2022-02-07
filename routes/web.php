@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+/* Admin HomePage route */
+Route::get('/', 'HomeController@index')->name('home');
+
 //Admin route
 Route::middleware('auth')
     ->namespace('Admin')
@@ -27,5 +30,7 @@ Route::middleware('auth')
     ->prefix('admin')
     ->group(
         function () {
-            Route::get('/', 'HomeController@index')->name('home');
+
+            //Product route
+            Route::resource('/products', 'ProductsController');
     });
