@@ -26,7 +26,7 @@
                 <input type="text" name="price" id="price" class="form-control" value="{{ old('price', $product->price) }}">
             </div>
 
-            <button class="btn btn-succes">Edit a product</button>
+            <button class="btn btn-success">Edit a product</button>
         </form>
     </div>
 @endsection
