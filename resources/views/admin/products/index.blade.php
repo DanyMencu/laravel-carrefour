@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="container">
+        <a class="btn btn-success my-2" href="{{route('admin.products.create')}}">Create a new product</a>
         <div class="row justify-content-center">
-            <div class="col-10">
+            <div class="col-12">
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>

@@ -25,7 +25,7 @@
                 <input type="text" name="price" id="price" class="form-control" value="{{ old('price') }}">
             </div>
 
-            <button class="btn btn-succes">Add a new product</button>
+            <button class="btn btn-success">Add a new product</button>
         </form>
     </div>
 @endsection
