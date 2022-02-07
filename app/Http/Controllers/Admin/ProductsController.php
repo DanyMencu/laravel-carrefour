@@ -80,9 +80,13 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        if (! $product) {
+            abort(404);
+        }
+
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -94,7 +98,33 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Update product details
+        $data = $request->all();
+
+        $product = Product::find($id);
+
+        //Slug update if name is changed
+        if ($data['name'] != $product->name) {
+            //Gen unique slug
+            $slug = Str::slug($data['name'], '-');
+            $count = 1;
+            $base_slug = $slug;
+
+            //Unique validation
+            while (product::where('slug', $slug)->first()) {
+                $slug = $base_slug . '-' . $count;
+                $count++;
+            }
+
+            //Create a slug inside DATA array
+            $data['slug'] = $slug;
+        } else {
+            $data['slug'] = $product->slug;
+        };
+
+        $product->update($data);
+
+        return redirect()->route('admin.products.show', $product->slug);
     }
 
     /**
