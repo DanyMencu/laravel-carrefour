@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 use App\Product;
 
 class ProductsController extends Controller
@@ -26,7 +28,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        //Add new product
+        return view('admin.products.create');
     }
 
     /**
@@ -37,7 +40,27 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Register a new product
+        $data = $request->all();
+
+        $new_product = new Product();
+
+        //Gen unique Slug
+        $slug = Str::slug($data['name'], '-');
+        $count = 1;
+        $base_slug = $slug;
+
+        while(Product::where('slug', $slug)->first()) {
+            $slug = $base_slug . '-' . $count;
+            $count++;
+        }
+
+        $data['slug'] = $slug;
+
+        $new_product->fill($data);
+        $new_product->save();
+
+        return redirect()->route('admin.products.show', $new_product->slug);
     }
 
     /**
