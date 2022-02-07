@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-ccontent-center">
+        <div class="row justify-content-center">
             <div class="col-10">
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
                             <th>name</th>
                             <th>price</th>
-                            <th colspan="3">actions</th>
+                            <th colspan="3" class="text-center">actions</th>
                         </tr>
                     </thead> 
                     <tbody>
@@ -17,13 +17,13 @@
                             <tr>
                                 <td>{{$product->name}}</td>
                                 <td>{{$product->name}}</td>
-                                <td>
-                                    <a href="{{route('admin.products.show', $product->slug)}}">see more</a>
-                                    <a href="{{route('admin.products.edit', $product->id)}}">edit product</a>
-                                    <form action="{{route('admin.products.destroy', $post->id)}}">
+                                <td class='d-flex justify-content-between'>
+                                    <a href="{{route('admin.products.show', $product->slug)}}" class="btn btn-success">see more</a>
+                                    <a href="{{route('admin.products.edit', $product->id)}}" class="btn btn-warning">edit product</a>
+                                    <form action="{{route('admin.products.destroy', $product->id)}}" method='POST'>
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger" on-click="return confirm('Are you sure you want to delete?')">delete product</button>
+                                        <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?')">delete product</button>
                                     </form>
                                 </td>
                             </tr>

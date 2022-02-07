@@ -13,8 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    <h4>Operations on:</h4>
+                    <hr>
+                    <div class='d-flex justify-content-between'>
+                        <p>Modify all the products contnet</p>
+                        <a href="{{route('admin.products.index')}}" class="btn btn-primary">Products</a>
+                    </div>
                 </div>
             </div>
         </div>
