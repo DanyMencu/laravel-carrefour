@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 use App\Product;
+use App\Category;
 
 class ProductsController extends Controller
 {
@@ -27,9 +28,12 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        //categories records
+        $categories = Category::all();
+
         //Add new product
-        return view('admin.products.create');
+        return view('admin.products.create',compact('categories'));
     }
 
     /**
@@ -82,11 +86,14 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
+        //categories records
+        $categories = Category::all();
+
         if (! $product) {
             abort(404);
         }
 
-        return view('admin.products.edit', compact('product'));
+        return view('admin.products.edit', compact('product','categories'));
     }
 
     /**
