@@ -33,7 +33,7 @@
             <select class="form-control" name="category_id" id="category_id">
                 <option value="">Uncategorized</option>
                 @foreach ($categories as $category)
-                <option value="{{$category->id}}" @if($category->id == old('category_id',$post->category_id)) selected
+                <option value="{{$category->id}}" @if($category->id == old('category_id',$product->category_id)) selected
                     @endif>
                     {{$category->status}}
                 </option>
