@@ -37,6 +37,7 @@
                 </option>
                 @endforeach
             </select>
+
             {{-- Allergen --}}
             <div class="mb-3">
                 <h3>Allergens</h3>
