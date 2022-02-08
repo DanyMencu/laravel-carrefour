@@ -11,15 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        $this->call(
-            CategoriesTableSeeder::class
-        );  
-=======
         $this->call([
             ProductsTableSeeder::class,
             AllergensTableSeeder::class,
         ]);
->>>>>>> master
     }
 }

@@ -5,13 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
-use App\Product;
-<<<<<<< HEAD
 use App\Category;
-=======
+use App\Product;
 use App\Allergen;
->>>>>>> master
+
 
 class ProductsController extends Controller
 {
@@ -37,12 +34,9 @@ class ProductsController extends Controller
         $categories = Category::all();
 
         //Add new product
-<<<<<<< HEAD
-        return view('admin.products.create',compact('categories'));
-=======
         $allergens = Allergen::all();
-        return view('admin.products.create', compact('allergens'));
->>>>>>> master
+        return view('admin.products.create', compact('allergens', 'categories'));
+
     }
 
     /**
@@ -105,24 +99,15 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
-<<<<<<< HEAD
-        //categories records
+        
         $categories = Category::all();
+        $allergens = Allergen::all();
 
         if (! $product) {
             abort(404);
         }
 
-        return view('admin.products.edit', compact('product','categories'));
-=======
-        $allergens = Allergen::all();
-
-        if (!$product) {
-            abort(404);
-        }
-
-        return view('admin.products.edit', compact('product', 'allergens'));
->>>>>>> master
+        return view('admin.products.edit', compact('product','categories', 'allergens'));
     }
 
     /**
