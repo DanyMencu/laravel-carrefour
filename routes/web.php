@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('guests.welcome');
+    return view('guests.home');
 });
 
 Auth::routes();
