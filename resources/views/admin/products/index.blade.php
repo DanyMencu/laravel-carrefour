@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
     <a class="btn btn-success my-2" href="{{route('admin.products.create')}}">Create a new product</a>
+    @if(session('message'))
+    <div class="alert alert-success">
+        <strong>{{session('message')}}</strong> was correctly deleted.
+    </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-12">
             <table class="table">

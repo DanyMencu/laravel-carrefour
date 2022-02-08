@@ -172,7 +172,7 @@ class ProductsController extends Controller
         $product = Product::find($id);
         if ($product) {
             $product->delete();
-            return redirect()->route('admin.products.index')->with('message', 'The product was successfully removed.');
+            return redirect()->route('admin.products.index')->with('message', $product->name);
         }
     }
 
