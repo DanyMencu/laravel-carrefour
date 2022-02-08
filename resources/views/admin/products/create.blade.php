@@ -74,5 +74,11 @@
 
             <button class="btn btn-success">Add a new product</button>
     </form>
+    <div class="row">
+        <a href="{{route('admin.products.index')}}" class="back-to mt-4">
+            <i class="fas fa-arrow-left icon-back-to"></i>
+            Back to Archive
+        </a>
+    </div>
 </div>
 @endsection
