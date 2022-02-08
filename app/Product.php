@@ -14,16 +14,13 @@ class Product extends Model
         'price'
     ];
 
-<<<<<<< HEAD
     //Relation with Categories
     public function Category(){
         return $this->belongsTo('App\Category');
-=======
-
+}
     //relations with allergens
     public function allergens()
     {
         return $this->belongsToMany('App\Allergen', 'product_allerge');
->>>>>>> master
     }
 }
