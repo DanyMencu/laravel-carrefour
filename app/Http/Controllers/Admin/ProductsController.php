@@ -52,6 +52,7 @@ class ProductsController extends Controller
         $request->validate([
             'name' => 'required|max: 255',
             'description' => 'required',
+            'price' => 'required',
         ]);
         // $request->validate($this->validation_rules(), $this->validation_messages());
         //Register a new product
