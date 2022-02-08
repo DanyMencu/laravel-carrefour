@@ -30,6 +30,7 @@ class ProductsController extends Controller
      */
     public function create()
     {   
+
         //categories records
         $categories = Category::all();
 
@@ -48,7 +49,11 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         // Validazione
-        $request->validate($this->validation_rules(), $this->validation_messages());
+        $request->validate([
+            'name' => 'required|max: 255',
+            'description' => 'required',
+        ]);
+        // $request->validate($this->validation_rules(), $this->validation_messages());
         //Register a new product
         $data = $request->all();
         //dd($data);
@@ -173,22 +178,22 @@ class ProductsController extends Controller
 
     // Validation rules
 
-    private function validation_rules() {
-        return [
-            'name' => 'required|max:255',
-            'description' => 'required',
-            'price' => 'required',
-            'category_id' => 'nullable|exists:categories,id', //Controllo se category id esiste nella tabella categories
-            'allergens'=> 'nullable|exists:allergens,id'
-        ];
-    }
+    // private function validation_rules() {
+    //     return [
+    //         'name' => 'required|max:255',
+    //         'description' => 'required',
+    //         'price' => 'required',
+    //         'category_id' => 'nullable|exists:categories,id', //
+    //         'allergens'=> 'nullable|exists:allergens,id'
+    //     ];
+    // }
 
-    private function validation_messages() {
-        return [
-            'required' => 'Remember to write the :attribute',
-            'max' => 'Max :max characters allowed for the :attribute', 
-            'category_id.exists' => 'The selected category doesn\'t exist.',
-            'allergens_id.exists' => 'The selected allergens doesn\'t exist.'
-        ];
-    }
+    // private function validation_messages() {
+    //     return [
+    //         'required' => 'Remember to write the :attribute',
+    //         'max' => 'Max :max characters allowed for the :attribute', 
+    //         'category_id.exists' => 'The selected category doesn\'t exist.',
+    //         'allergens_id.exists' => 'The selected allergens doesn\'t exist.'
+    //     ];
+    // }
 }

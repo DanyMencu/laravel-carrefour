@@ -4,6 +4,16 @@
 <div class="container">
     <h1 class="text-center my-3">Add new product</h1>
 
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li> {{$error}} </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <form action="{{ route('admin.products.store') }}" method="POST">
         @csrf
 
