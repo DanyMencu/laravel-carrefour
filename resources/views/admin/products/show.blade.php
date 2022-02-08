@@ -23,11 +23,21 @@
             </button>
         </div>
     </div>
+
+    @if(!$product->allergens->isEmpty())
+        <h3 class="mt-3">Allergie:</h3>
+        @foreach($product->allergens as $allergen)
+            <span class="badge badge-primary">{{ $allergen->name }}</span>
+        @endforeach    
+    @else
+        <p>no allergie per questp prodotto</p>
+    @endif
+
     <div class="row">
         <a href="{{route('admin.products.index')}}" class="back-to mt-4">
         <i class="fas fa-arrow-left icon-back-to"></i>
         Back to Archive
         </a>
-    </div> 
+    </div>
 </div>
 @endsection
