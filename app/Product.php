@@ -13,4 +13,11 @@ class Product extends Model
         'description',
         'price'
     ];
+
+
+    //relations with allergens
+    public function allergens()
+    {
+        return $this->belongsToMany('App\Allergen', 'product_allerge');
+    }
 }
