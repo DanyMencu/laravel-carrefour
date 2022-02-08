@@ -59,6 +59,10 @@
                 </option>
                 @endforeach
             </select>
+            @error('category_id')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
+
             {{-- Allergen --}}
             <div class="my-3">
                 <h3>Allergens</h3>
@@ -77,7 +81,11 @@
                     </label>
                 </span>
                 @endforeach
+                @error('allergens')
+                <div class="text-danger">{{$message}}</div>
+                @enderror
             </div>
+
             <button class="btn btn-success">Edit a product</button>
     </form>
     <div class="row">

@@ -182,7 +182,9 @@ class ProductsController extends Controller
         return [
          'name' => 'required|max: 255',
             'description' => 'required',
-            'price' => 'required',  
+            'price' => 'required', 
+            'category_id' => 'nullable|exists:categories,id',
+            'allergens' => 'nullable|exists:allergens,id',
         ];
     }
 
@@ -190,6 +192,8 @@ class ProductsController extends Controller
         return [
             'required' => 'The :attribute is a required field. Don\'t forget it!',
             'max' => 'Max :max characters allowed for the :attribute',
+            'category_id.exists' => 'The selected category doesn\'t exist.',
+            'allergens.exists' => 'The selected allergen doesn\'t exist.',
         ];
     }
 }
