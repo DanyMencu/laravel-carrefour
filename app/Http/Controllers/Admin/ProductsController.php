@@ -53,7 +53,16 @@ class ProductsController extends Controller
             'name' => 'required|max: 255',
             'description' => 'required',
             'price' => 'required',
-        ]);
+        ],
+        [
+            'required' => 'The :attribute is a required field. Don\'t forget it!',
+            'max' => 'Max :max characters allowed for the :attribute',
+        ]
+    );
+
+       
+
+
         // $request->validate($this->validation_rules(), $this->validation_messages());
         //Register a new product
         $data = $request->all();
