@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 use App\Product;
+<<<<<<< HEAD
+use App\Category;
+=======
 use App\Allergen;
+>>>>>>> master
 
 class ProductsController extends Controller
 {
@@ -28,10 +32,17 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        //categories records
+        $categories = Category::all();
+
         //Add new product
+<<<<<<< HEAD
+        return view('admin.products.create',compact('categories'));
+=======
         $allergens = Allergen::all();
         return view('admin.products.create', compact('allergens'));
+>>>>>>> master
     }
 
     /**
@@ -94,6 +105,16 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
+<<<<<<< HEAD
+        //categories records
+        $categories = Category::all();
+
+        if (! $product) {
+            abort(404);
+        }
+
+        return view('admin.products.edit', compact('product','categories'));
+=======
         $allergens = Allergen::all();
 
         if (!$product) {
@@ -101,6 +122,7 @@ class ProductsController extends Controller
         }
 
         return view('admin.products.edit', compact('product', 'allergens'));
+>>>>>>> master
     }
 
     /**

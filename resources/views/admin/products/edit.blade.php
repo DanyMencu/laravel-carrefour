@@ -26,6 +26,20 @@
                 <input type="text" name="price" id="price" class="form-control" value="{{ old('price', $product->price) }}">
             </div>
 
+<<<<<<< HEAD
+            {{-- Categories --}}
+            <div class="mb-3">
+                <label for="category_id">Category:</label>
+                <select class="form-control" name="category_id" id="category_id">
+                    <option value="">Uncategorized</option>
+                    @foreach ($categories as  $category)
+                        <option value="{{$category->id}}"
+                            @if($category->id == old('category_id',$post->category_id)) selected @endif>
+                            {{$category->status}}
+                        </option>
+                    @endforeach
+                </select>
+=======
             {{-- Allergen --}}
             <div class="mb-3">
                 <h3>Allergens</h3>
@@ -45,6 +59,7 @@
                         </label>
                     </span>
                 @endforeach
+>>>>>>> master
             </div>
 
             <button class="btn btn-success">Edit a product</button>
