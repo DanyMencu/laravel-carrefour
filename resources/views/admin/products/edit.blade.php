@@ -26,6 +26,7 @@
                 <input type="text" name="price" id="price" class="form-control" value="{{ old('price', $product->price) }}">
             </div>
 
+<<<<<<< HEAD
             {{-- Categories --}}
             <div class="mb-3">
                 <label for="category_id">Category:</label>
@@ -38,6 +39,27 @@
                         </option>
                     @endforeach
                 </select>
+=======
+            {{-- Allergen --}}
+            <div class="mb-3">
+                <h3>Allergens</h3>
+
+                @foreach($allergens as $allergen)
+                    <span class="d-inline-block mr-3">
+                        <input type="checkbox" name="allergens[]" id="allergen{{ $loop->iteration }}" value="{{ $allergen->id }}"
+
+                        @if($errors->any() && in_array($allergen->id, old('allergens'))) 
+                            checked
+                        @elseif(!$errors->any() && $product->allergens->contains($allergen->id))
+                            checked
+                        @endif>
+
+                        <label for="allergen{{ $loop->iteration }}">
+                            {{ $allergen->name }}
+                        </label>
+                    </span>
+                @endforeach
+>>>>>>> master
             </div>
 
             <button class="btn btn-success">Edit a product</button>
