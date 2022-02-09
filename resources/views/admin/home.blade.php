@@ -15,9 +15,15 @@
                     @endif
                     <h4>Operations on:</h4>
                     <hr>
-                    <div class='d-flex justify-content-between'>
-                        <p>Modify all the products contnet</p>
-                        <a href="{{route('admin.products.index')}}" class="btn btn-primary">Products</a>
+                    <div class='my-3 row'>
+                        {{-- Product index route --}}
+                        <a href="{{route('admin.products.index')}}" class="my-1">Show all products</a>
+
+                        {{-- Product create route --}}
+                        <a href="{{route('admin.products.create')}}" class="my-1">Add new product</a>
+
+                        {{-- Type create route --}}
+                        <a href="{{-- {{route('admin.types')}} --}}#" class="my-1">Show all types of products</a>
                     </div>
                 </div>
             </div>
