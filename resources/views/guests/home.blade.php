@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Carrefour</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -17,102 +17,119 @@
 
     <!-- Styles -->
     <style>
-    html,
-    body {
-        background-color: #fff;
-        color: #636b6f;
-        font-family: 'Nunito', sans-serif;
-        font-weight: 200;
-        height: 100vh;
-        margin: 0;
-    }
+        html,
+        body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .full-height {
-        height: 100vh;
-    }
+        .full-height {
+            height: 100vh;
+        }
 
-    .flex-center {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
 
-    .position-ref {
-        position: relative;
-    }
+        .position-ref {
+            position: relative;
+        }
 
-    .top-right {
-        position: absolute;
-        right: 10px;
-        top: 18px;
-        border-bottom: 1px solid grey;
-    }
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+            border-bottom: 1px solid grey;
+        }
 
-    .content {
-        text-align: center;
-    }
+        .content {
+            text-align: center;
+        }
 
-    .title {
-        font-size: 84px;
-    }
+        .title {
+            font-size: 84px;
+        }
 
-    .links>a {
-        color: #636b6f;
-        padding: 0 25px;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
+        .links>a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
 
-    .m-b-md {
-        margin-bottom: 30px;
-    }
+        .m-b-md {
+            margin-bottom: 30px;
+        }
 
-    .menu-guest {
-        background-color: #1b3d79;
-        padding: 5px 20px;
-        display: flex;
-        justify-content: space-between;
-    }
+        .menu-guest {
+            background-color: #1b3d79;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .link-brand {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        color: #fff;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 600;
-    }
+        .link-brand {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+        }
 
-    .img-logo {
-        margin-right: 10px;
-    }
+        .img-logo {
+            margin-right: 10px;
+        }
 
-    .list-menu-item {
-        list-style: none;
-        display: flex;
-    }
+        .list-menu-item {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
 
-    .menu-item {
-        margin-right: 10px;
-    }
+        .menu-item {
+            margin-right: 10px;
+        }
 
-    .menu-item:last-child {
-        margin-right: 0px;
-    }
+        .menu-item:last-child {
+            margin-right: 0px;
+        }
 
-    .menu-item a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 14px;
-    }
+        .menu-item a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
 
-    .icon-menu {
-        margin-right: 5px;
-    }
+        .icon-menu {
+            margin-right: 5px;
+        }
+
+        .btn {
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            font-weight: 400;
+        }
+
+        .log {
+            background-color: #1b51bf;
+            border:1px solid #fff;
+        }
+
+        .register {
+            background-color: #fd0202;
+            border:1px solid #fff;
+        }
     </style>
 </head>
 
@@ -152,22 +169,24 @@
                         Carta Carrefour
                     </a>
                 </li>
+                <li class="menu-item">
+                    @if (Route::has('login'))
+                        @auth
+                        <a class="btn log" href="{{ url('/admin') }}">Personal Area</a>
+                        @else
+                        <a class="btn log" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="menu-item">
+                        @if (Route::has('register'))
+                        <a class="btn register" href="{{ route('register') }}">Register</a>
+                        @endif
+                        @endauth
+                    @endif
+                    </li>
             </ul>
         </div>
     </nav>
     <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{ url('/admin') }}">Personal Area</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif
         <div id="root"></div>
     </div>
 

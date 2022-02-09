@@ -11,7 +11,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Carrefour</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -47,13 +47,19 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{ url('guests.home') }}" target='_blank' class="nav-link
-                            @if(Request::route()->getName() == 'guests.home') active @endif">Public Homepage</a>
+                            <a href="{{ url('guests.home') }}" target='_blank' class="nav-link mx-1">Public Homepage</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.products.create') }}" class="nav-link
-                            @if(Request::route()->getName() == 'admin.products.create') active @endif">Create new
-                                product</a>
+                            <a href="{{ route('admin.products.create') }}" class="nav-link mx-1
+                            @if(Request::route()->getName() == 'admin.products.create') active @endif">
+                                Create newproduct
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.products.index') }}" class="nav-link mx-1
+                            @if(Request::route()->getName() == 'admin.products.index') active @endif">
+                                Show all products
+                            </a>
                         </li>
                     </ul>
 

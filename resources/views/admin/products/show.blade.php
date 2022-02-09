@@ -23,28 +23,33 @@
             image here
         </div>
     </div>
-    
-    {{-- types --}}
-    <div class="mb-5">
-        <h3 class="mt-3">Type:</h3>
-        @if(!$product->type)
-        <strong class="badge badge-primary">No type</strong>
-        @else
-            <span class="mb-3">
-                
-                <strong class="badge badge-primary">{{ $product->Type->name }}</strong>
-            </span>
-        @endif
-    </div>
 
-    @if(!$product->allergens->isEmpty())
-    <h3 class="mt-3">Allergeni:</h3>
-    @foreach($product->allergens as $allergen)
-    <span class="badge badge-primary">{{ $allergen->name }}</span>
-    @endforeach
-    @else
-    <p class="mt-3">Non ci sono allergeni per questo prodotto</p>
-    @endif
+    <div class="row">
+        {{-- types --}}
+        <div class="col-3 mb-3">
+            <h3 class="mt-3">Type:</h3>
+            @if(!$product->type)
+            <strong class="badge badge-primary p-1">No type</strong>
+            @else
+                <span class="mb-3">
+                    
+                    <strong class="badge badge-primary p-1">{{ $product->Type->name }}</strong>
+                </span>
+            @endif
+        </div>
+
+        <div class="col-3">
+            {{-- Allergens --}}
+            @if(!$product->allergens->isEmpty())
+            <h3 class="mt-3">Allergeni:</h3>
+            @foreach($product->allergens as $allergen)
+            <span class="badge badge-success p-1">{{ $allergen->name }}</span>
+            @endforeach
+            @else
+            <p class="mt-3">Non ci sono allergeni per questo prodotto</p>
+            @endif
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-12">
