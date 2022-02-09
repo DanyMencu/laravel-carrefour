@@ -13555,7 +13555,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\danym\Desktop\laravel-carrefour\resources\js\front-office.js */"./resources/js/front-office.js");
+module.exports = __webpack_require__(/*! C:\Users\david\Desktop\laravel-carrefour\resources\js\front-office.js */"./resources/js/front-office.js");
 
 
 /***/ })
