@@ -11,7 +11,8 @@ class Product extends Model
         'name',
         'slug',
         'description',
-        'price'
+        'price',
+        'type_id',
     ];
 
     //Relation with Categories
