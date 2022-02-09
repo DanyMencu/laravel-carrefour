@@ -23,12 +23,18 @@
             image here
         </div>
     </div>
+
     {{-- types --}}
     <div class="mb-5">
-        <span class="mb-3">
-            <h3 class="mt-3">Type:</h3>
-            <strong class="badge badge-primary">{{ $product->Type->name }}</strong>
-        </span>
+        <h3 class="mt-3">Type:</h3>
+        @if(!$product->type)
+        <strong class="badge badge-primary">No type</strong>
+        @else
+            <span class="mb-3">
+                
+                <strong class="badge badge-primary">{{ $product->Type->name }}</strong>
+            </span>
+        @endif
     </div>
 
     @if(!$product->allergens->isEmpty())
