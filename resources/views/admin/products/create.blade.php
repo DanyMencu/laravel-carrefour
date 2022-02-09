@@ -4,6 +4,16 @@
 <div class="container">
     <h1 class="text-center my-3">Add new product</h1>
 
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li> {{$error}} </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <form action="{{ route('admin.products.store') }}" method="POST">
         @csrf
 
@@ -11,19 +21,28 @@
         <div class="mb-3">
             <label for="name" class="form-label">Name:</label>
             <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+            @error('name')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
         </div>
 
         {{-- Description --}}
         <div class="mb-3">
             <label for="description" class="form-label">Description:</label>
-            <textarea type="text" name="description" id="description"
-                class="form-control">{{ old('description') }}</textarea>
+            <textarea type="text" name="description" id="description" class="form-control">{{ old('description') }}
+            </textarea>
+            @error('description')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
         </div>
 
         {{-- Price --}}
         <div class="mb-3">
             <label for="price" class="form-label">Price:</label>
             <input type="text" name="price" id="price" class="form-control" value="{{ old('price') }}">
+            @error('price')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
         </div>
 
         {{-- Categories --}}
@@ -37,8 +56,12 @@
                 </option>
                 @endforeach
             </select>
+            @error('category_id')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
+
             {{-- Allergen --}}
-            <div class="mb-3">
+            <div class="my-3">
                 <h3>Allergens</h3>
 
                 @foreach($allergens as $allergen)
@@ -50,9 +73,18 @@
                     </label>
                 </span>
                 @endforeach
+                @error('allergens')
+                <div class="text-danger">{{$message}}</div>
+                @enderror
             </div>
 
             <button class="btn btn-success">Add a new product</button>
     </form>
+    <div class="row">
+        <a href="{{route('admin.products.index')}}" class="back-to mt-4">
+            <i class="fas fa-arrow-left icon-back-to"></i>
+            Back to Archive
+        </a>
+    </div>
 </div>
 @endsection
