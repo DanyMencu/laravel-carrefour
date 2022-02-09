@@ -86,7 +86,7 @@
                 @enderror
             </div>
 
-            <button class="btn btn-success">Edit a product</button>
+            <button class="btn btn-success">Edit product</button>
     </form>
     <div class="row">
         <a href="{{route('admin.products.index')}}" class="back-to mt-4">
