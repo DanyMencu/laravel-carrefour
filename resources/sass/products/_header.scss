@@ -1,0 +1,24 @@
+#app {
+    nav.navbar.navbar-light {
+        background-color: $primary-color;
+        .navbar-brand {
+            color: #fff;
+            margin-right: 30px;
+            .logo {
+                margin-right: 5px;
+            }
+        }
+        .navbar-collapse {
+            .navbar-nav {
+                .nav-item {
+                    a.nav-link {
+                        color: #fff;
+                    }
+                    a.nav-link.active {
+                        border-bottom: 1px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+}
