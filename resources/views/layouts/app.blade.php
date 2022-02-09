@@ -51,7 +51,7 @@
                             @if(Request::route()->getName() == 'guests.home') active @endif">Public Homepage</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.products.create') }}" target='_blank' class="nav-link
+                            <a href="{{ route('admin.products.create') }}" class="nav-link
                             @if(Request::route()->getName() == 'admin.products.create') active @endif">Create new
                                 product</a>
                         </li>
