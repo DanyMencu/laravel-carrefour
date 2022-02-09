@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Allergen;
 use Illuminate\Support\Str;
+use App\Allergen;
 
 class AllergensTableSeeder extends Seeder
 {
