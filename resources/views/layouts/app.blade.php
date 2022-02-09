@@ -34,7 +34,8 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('admin.home') }}">
-                    <img src="{{asset('images/carrefour-logomark.svg')}}" alt="logo-carrefour">
+                    <img src="{{asset('images/carrefour-logomark.svg')}}" alt="logo-carrefour" class="logo">
+                    Carrefour
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -48,6 +49,11 @@
                         <li class="nav-item">
                             <a href="{{ url('guests.home') }}" target='_blank' class="nav-link
                             @if(Request::route()->getName() == 'guests.home') active @endif">Public Homepage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.products.create') }}" target='_blank' class="nav-link
+                            @if(Request::route()->getName() == 'admin.products.create') active @endif">Create new
+                                product</a>
                         </li>
                     </ul>
 
