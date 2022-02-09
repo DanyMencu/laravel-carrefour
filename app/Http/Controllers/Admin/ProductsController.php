@@ -77,7 +77,7 @@ class ProductsController extends Controller
             $new_product->allergens()->attach($data['allergens']);
         }
 
-        return redirect()->route('admin.products.show', $new_product->slug);
+        return redirect()->route('admin.products.show', $new_product->slug)->with('message', 'The product was created sucessefully.');;
     }
 
     /**
@@ -158,7 +158,7 @@ class ProductsController extends Controller
             $product->allergens()->detach();
         }
 
-        return redirect()->route('admin.products.show', $product->slug);
+        return redirect()->route('admin.products.show', $product->slug)->with('message', 'The product was edited sucessefully.');;
     }
 
     /**
