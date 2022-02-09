@@ -10972,3 +10972,11 @@ a.text-dark:focus {
   color: #fff;
 }
 
+#app nav.navbar.navbar-light {
+  background-color: #1b3d79;
+}
+
+#app nav.navbar.navbar-light .navbar-collapse .navbar-nav .nav-item a {
+  color: #fff;
+}
+

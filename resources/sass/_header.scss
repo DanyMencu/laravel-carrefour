@@ -1,0 +1,14 @@
+#app {
+    nav.navbar.navbar-light {
+        background-color: $primary-color;
+        .navbar-collapse {
+            .navbar-nav {
+                .nav-item {
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
