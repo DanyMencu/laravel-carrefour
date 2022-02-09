@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    @if(session('message'))
+    <div class="alert alert-success opacity-an">
+        <span>{{session('message')}}</span>
+    </div>
+    @endif
     <div class="row">
         <h1 class="my-4">{{$product->name}}</h1>
     </div>
