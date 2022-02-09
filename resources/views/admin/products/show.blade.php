@@ -31,6 +31,19 @@
         </span>
     </div>
 
+    {{-- types --}}
+    <div class="mb-5">
+        <h3 class="mt-3">Type:</h3>
+        @if(!$product->type)
+        <strong class="badge badge-primary">No type</strong>
+        @else
+            <span class="mb-3">
+                
+                <strong class="badge badge-primary">{{ $product->Type->name }}</strong>
+            </span>
+        @endif
+    </div>
+
     @if(!$product->allergens->isEmpty())
     <h3 class="mt-3">Allergeni:</h3>
     @foreach($product->allergens as $allergen)
