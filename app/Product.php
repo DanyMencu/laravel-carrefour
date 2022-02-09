@@ -15,8 +15,15 @@ class Product extends Model
     ];
 
     //Relation with Categories
-    public function Category(){
+    public function Category()
+    {
         return $this->belongsTo('App\Category');
+    }
+
+    //Relation with types
+    public function Type()
+    {
+        return $this->belongsTo('App\Type');
     }
     //relations with allergens
     public function allergens()

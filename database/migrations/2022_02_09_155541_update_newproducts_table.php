@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateProductsTable extends Migration
+class UpdateNewproductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,12 @@ class UpdateProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //FK Column
-            $table->unsignedBigInteger('category_id')->nullable()->after('id');
+            $table->unsignedBigInteger('type_id')->nullable()->after('category_id');
 
             //FK constrain constrain 
-            $table->foreign('category_id')
+            $table->foreign('type_id')
                 ->references('id')
-                ->on('categories')
+                ->on('types')
                 ->onDelete('set null');
         });
     }
@@ -33,8 +33,8 @@ class UpdateProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('products_category_id_foreign');
-            $table->dropColumn('category_id');
+            $table->dropForeign('products_type_id_foreign');
+            $table->dropColumn('type_id');
         });
     }
 }
