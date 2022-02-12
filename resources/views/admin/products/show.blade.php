@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container bg-white p-3">
     @if(session('message'))
     <div class="alert alert-success opacity-an">
         <span>{{session('message')}}</span>
     </div>
     @endif
     <div class="row">
-        <h1 class="my-4">{{$product->name}}</h1>
+        <h1 class="my-4">{{$product->name}}
+            @if ($product->category === 'Frozen')
+                <img src="{{ asset('images/frozen.pnh') }}" alt="$product->category">
+            @endif
+        </h1>
     </div>
     <div class="row">
         <div class="col-12 col-lg-6">
@@ -19,8 +23,9 @@
                 Price: {{$product->price}}€
             </div>
         </div>
-        <div class="col-12 col-lg-6">
-            image here
+        <div class="col-12 col-lg-5 ms-lg-5">
+            <h5 class="mb-0">Image: </h5>
+            <img src="{{ asset('images/' . $product->name . '.jpg') }}" alt="{{ $product->name }}">
         </div>
     </div>
 

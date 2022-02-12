@@ -16,13 +16,13 @@ class Product extends Model
     ];
 
     //Relation with Categories
-    public function Category()
+    public function category()
     {
         return $this->belongsTo('App\Category');
     }
 
     //Relation with types
-    public function Type()
+    public function type()
     {
         return $this->belongsTo('App\Type');
     }
