@@ -56,7 +56,6 @@ class ProductsController extends Controller
 
         //Register a new product
         $data = $request->all();
-        //dd($data);
 
         $new_product = new Product();
 

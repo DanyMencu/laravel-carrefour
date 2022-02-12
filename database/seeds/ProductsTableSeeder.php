@@ -14,7 +14,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $products = ['Sofficini', 'Arance', 'Hamburger'];
+        $products = ['Sofficini', 'Arance', 'Hamburger', 'Riso', 'Pollo', 'Tonno', 'Pizza'];
 
         foreach ($products as $product) {
             $new_prudct = new Product();
