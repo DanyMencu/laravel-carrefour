@@ -10981,6 +10981,12 @@ a.text-dark:focus {
   background: #666;
 }
 
+.frozen-icon {
+  width: 30px;
+  height: 30px;
+  transform: translateY(-50%);
+}
+
 #app nav.navbar.navbar-light {
   background-color: #1b3d79;
 }

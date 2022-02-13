@@ -9,8 +9,8 @@
     @endif
     <div class="row">
         <h1 class="my-4">{{$product->name}}
-            @if ($product->category === 'Frozen')
-                <img src="{{ asset('images/frozen.pnh') }}" alt="$product->category">
+            @if ($product->category_id === 2)
+                <img src="{{ asset('images/ice.jpg') }}" alt="Frozen" class="frozen-icon">
             @endif
         </h1>
     </div>
