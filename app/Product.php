@@ -13,16 +13,17 @@ class Product extends Model
         'description',
         'price',
         'type_id',
+        'category_id',
     ];
 
     //Relation with Categories
-    public function category()
+    public function Category()
     {
         return $this->belongsTo('App\Category');
     }
 
     //Relation with types
-    public function type()
+    public function Type()
     {
         return $this->belongsTo('App\Type');
     }
