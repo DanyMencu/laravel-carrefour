@@ -16,6 +16,8 @@
         crossorigin='anonymous' />
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
     <style>
         html,
         body {
@@ -186,10 +188,8 @@
             </ul>
         </div>
     </nav>
-    <div class="flex-center position-ref full-height">
-        <div id="root"></div>
-    </div>
 
+    <div id="root"></div>
 
     {{-- JS --}}
     <script src="{{ asset('js/front-office.js') }}"></script>
