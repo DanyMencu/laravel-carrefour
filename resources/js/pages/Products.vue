@@ -1,12 +1,14 @@
 <template>
-  <div class="container-fluid">
-     <div class="row">
-         <div class="col-2" v-for="(product, index) in products" :key='`product-${index}`'>
-            <div class='card-container mb-5'>
-                <Card />
+  <div class="products pt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2" v-for="(product, index) in products" :key='`product-${index}`'>
+                <div class='card-container mb-5'>
+                    <Card :product="product"/>
+                </div>
             </div>
-         </div>
-     </div>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -28,7 +30,6 @@ export default {
         getProducts(){
             axios.get('http://127.0.0.1:8000/api/products')
             .then(response => {
-                console.log(response.data)
                 this.products = response.data;
             })
         }
@@ -39,6 +40,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+    .products {
+        min-height: 100vh;
+        background-color: #f7f7f7;
+    }
 </style>

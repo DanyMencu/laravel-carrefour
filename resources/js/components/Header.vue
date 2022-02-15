@@ -1,5 +1,5 @@
 <template>
-    <header class="mb-3">
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">
                 <!-- <img

@@ -5,7 +5,7 @@ import VueRouter from "vue-router";
 //Components
 // import Home from './pages/Home';
 import Products from './pages/Products';
-import Contact from './pages/Contact';
+// import Contact from './pages/Contact';
 import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 
@@ -22,11 +22,11 @@ const router = new VueRouter({
         //     name: "home",
         //     component: Home,
         // },
-        // {
-        //     path: "/products",
-        //     name: "products",
-        //     component: Products,
-        // },
+        {
+            path: "/products",
+            name: "products",
+            component: Products,
+        },
         {
             path: "/product/:slug",
             name: "ProductDetail",
