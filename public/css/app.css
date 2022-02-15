@@ -10972,3 +10972,39 @@ a.text-dark:focus {
   color: #fff;
 }
 
+.card {
+  box-shadow: 5px 10px 18px #888888;
+}
+
+.card .card-header {
+  color: #fff;
+  background: #666;
+}
+
+.frozen-icon {
+  width: 30px;
+  height: 30px;
+  transform: translateY(-50%);
+}
+
+#app nav.navbar.navbar-light {
+  background-color: #1b3d79;
+}
+
+#app nav.navbar.navbar-light .navbar-brand {
+  color: #fff;
+  margin-right: 30px;
+}
+
+#app nav.navbar.navbar-light .navbar-brand .logo {
+  margin-right: 5px;
+}
+
+#app nav.navbar.navbar-light .navbar-collapse .navbar-nav .nav-item a.nav-link {
+  color: #fff;
+}
+
+#app nav.navbar.navbar-light .navbar-collapse .navbar-nav .nav-item a.nav-link.active {
+  border-bottom: 1px solid #fff;
+}
+

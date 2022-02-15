@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Type extends Model
 {
     //Relation with Products
-     public function products(){
+    public function products()
+    {
         return $this->hasMany('App\Product');
     }
 }

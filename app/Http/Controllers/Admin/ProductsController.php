@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Category;
 use App\Product;
 use App\Allergen;
+use App\Type;
 
 
 class ProductsController extends Controller
@@ -29,15 +30,17 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
 
         //categories records
         $categories = Category::all();
 
+        //types records
+        $types = Type::all();
+
         //Add new product
         $allergens = Allergen::all();
-        return view('admin.products.create', compact('allergens', 'categories'));
-
+        return view('admin.products.create', compact('allergens', 'categories', 'types'));
     }
 
     /**
@@ -50,10 +53,9 @@ class ProductsController extends Controller
     {
         // Validazione
         $request->validate($this->validation_rules(), $this->validation_messages());
-        
+
         //Register a new product
         $data = $request->all();
-        //dd($data);
 
         $new_product = new Product();
 
@@ -89,6 +91,7 @@ class ProductsController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->first(); //in caso di doppione, vuol dire che prende il primo che trova
+        //dump($product->Type);
         if ($product) {
             return view('admin.products.show', compact('product'));
         }
@@ -103,15 +106,16 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
-        
+
         $categories = Category::all();
+        $types = Type::all();
         $allergens = Allergen::all();
 
-        if (! $product) {
+        if (!$product) {
             abort(404);
         }
 
-        return view('admin.products.edit', compact('product','categories', 'allergens'));
+        return view('admin.products.edit', compact('product', 'categories', 'allergens', 'types'));
     }
 
     /**
@@ -178,21 +182,25 @@ class ProductsController extends Controller
 
     // Validation rules
 
-    private function validation_rules() {
+    private function validation_rules()
+    {
         return [
-         'name' => 'required|max: 255',
+            'name' => 'required|max: 255',
             'description' => 'required',
-            'price' => 'required', 
+            'price' => 'required',
             'category_id' => 'nullable|exists:categories,id',
+            'type_id' => 'nullable|exists:types,id',
             'allergens' => 'nullable|exists:allergens,id',
         ];
     }
 
-    private function validation_messages() {
+    private function validation_messages()
+    {
         return [
             'required' => 'The :attribute is a required field. Don\'t forget it!',
             'max' => 'Max :max characters allowed for the :attribute',
             'category_id.exists' => 'The selected category doesn\'t exist.',
+            'type_id.exists' => 'The selected type doesn\'t exist.',
             'allergens.exists' => 'The selected allergen doesn\'t exist.',
         ];
     }
