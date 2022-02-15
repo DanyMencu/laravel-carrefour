@@ -10,8 +10,7 @@
                 <ul class="navbar-nav mr-auto">
                     <!-- Home -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                        <!-- <router-link class="nav-link" :to="{name: 'home'}">Home</router-link> -->
+                        <router-link class="nav-link" :to="{name: 'home'}">Home</router-link>
                     </li>
                     <!-- Products -->
                     <li class="nav-item">

@@ -3,10 +3,12 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 //Components
-/* import Home from './pages/Home';
+import Home from './pages/Home';
+/*
 import Products from './pages/Products';
 import Contact from './pages/Contact';
-import NotFound from './pages/NotFound';*/
+import NotFound from './pages/NotFound';
+*/
 
 //Active VueRouter in Vue
 Vue.use(VueRouter);
@@ -16,11 +18,12 @@ const router = new VueRouter({
     mode: 'history',
     linkExactActiveClass: 'active',
     routes: [ 
-/*         {
+         {
             path: '/',
             name: 'home',
             component: Home,
         },
+/*
         {
             path: '/products',
             name: 'products',
