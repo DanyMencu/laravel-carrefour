@@ -2,7 +2,6 @@
     <header class="mb-3">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">
-                <img src="../../../public/images/carrefour-logomark.svg" alt="logo-carrefour" class="logo">
                 Carrefour
             </a>
 
@@ -20,8 +19,7 @@
                     </li>
                     <!-- Contact -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                        <!-- <router-link class="nav-link" :to="{name: 'contact'}">Contact Us</router-link> -->
+                        <router-link class="nav-link" :to="{name: 'contact'}">Contact Us</router-link>
                     </li>
                 </ul>
             </div>
