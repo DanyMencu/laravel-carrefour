@@ -47,7 +47,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{ url('guests.home') }}" target='_blank' class="nav-link mx-1">Public Homepage</a>
+                            <a href="{{ url('/') }}" target='_blank' class="nav-link mx-1">Public Homepage</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.products.create') }}" class="nav-link mx-1
