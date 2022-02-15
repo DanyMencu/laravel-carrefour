@@ -2,7 +2,7 @@
     <header class="mb-3">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">
-                <img src="../../../public/images/carrefour-logomark.svg" alt="logo-carrefour" class="logo">
+                <img src="./../../../public/images/carrefour-logomark.svg" alt="logo-carrefour" class="logo">
                 Carrefour
             </a>
 
@@ -31,7 +31,7 @@
 
 <script>
 export default {
-    name: 'Headers',
+    name: 'Header'
 
 }
 </script>
