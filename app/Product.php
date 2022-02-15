@@ -11,12 +11,21 @@ class Product extends Model
         'name',
         'slug',
         'description',
-        'price'
+        'price',
+        'type_id',
+        'category_id',
     ];
 
     //Relation with Categories
-    public function Category(){
+    public function Category()
+    {
         return $this->belongsTo('App\Category');
+    }
+
+    //Relation with types
+    public function Type()
+    {
+        return $this->belongsTo('App\Type');
     }
     //relations with allergens
     public function allergens()

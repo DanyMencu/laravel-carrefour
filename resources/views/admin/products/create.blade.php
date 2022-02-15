@@ -59,7 +59,23 @@
             @error('category_id')
             <div class="text-danger">{{$message}}</div>
             @enderror
+        </div>
 
+        {{-- types --}}
+        <div class="mb-3">
+            <label for="type_id">Type:</label>
+            <select class="form-control" name="type_id" id="type_id">
+                <option value="">Uncategorized</option>
+                @foreach ($types as $type)
+                <option value="{{$type->id}}" @if($type->id == old('type_id')) selected @endif>
+                    {{$type->name}}
+                </option>
+                @endforeach
+            </select>
+            @error('type_id')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
+        </div>
             {{-- Allergen --}}
             <div class="my-3">
                 <h3>Allergens</h3>

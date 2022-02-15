@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container bg-white p-3">
     @if(session('message'))
     <div class="alert alert-success opacity-an">
         <span>{{session('message')}}</span>
     </div>
     @endif
     <div class="row">
-        <h1 class="my-4">{{$product->name}}</h1>
+        <h1 class="my-4">{{$product->name}}
+            @if ($product->category_id === 2)
+                <img src="{{ asset('images/ice.jpg') }}" alt="Frozen" class="frozen-icon">
+            @endif
+        </h1>
     </div>
     <div class="row">
         <div class="col-12 col-lg-6">
@@ -19,19 +23,38 @@
                 Price: {{$product->price}}€
             </div>
         </div>
-        <div class="col-12 col-lg-6">
-            image here
+        <div class="col-12 col-lg-5 ms-lg-5">
+            <h5 class="mb-0">Image: </h5>
+            <img src="{{ asset('images/' . $product->name . '.jpg') }}" alt="{{ $product->name }}">
         </div>
     </div>
 
-    @if(!$product->allergens->isEmpty())
-    <h3 class="mt-3">Allergeni:</h3>
-    @foreach($product->allergens as $allergen)
-    <span class="badge badge-primary">{{ $allergen->name }}</span>
-    @endforeach
-    @else
-    <p class="mt-3">Non ci sono allergeni per questo prodotto</p>
-    @endif
+    <div class="row">
+        {{-- types --}}
+        <div class="col-3 mb-3">
+            <h3 class="mt-3">Type:</h3>
+            @if(!$product->type)
+            <strong class="badge badge-primary p-1">No type</strong>
+            @else
+                <span class="mb-3">
+                    
+                    <strong class="badge badge-primary p-1">{{ $product->Type->name }}</strong>
+                </span>
+            @endif
+        </div>
+
+        <div class="col-3">
+            {{-- Allergens --}}
+            @if(!$product->allergens->isEmpty())
+            <h3 class="mt-3">Allergeni:</h3>
+            @foreach($product->allergens as $allergen)
+            <span class="badge badge-success p-1">{{ $allergen->name }}</span>
+            @endforeach
+            @else
+            <p class="mt-3">Non ci sono allergeni per questo prodotto</p>
+            @endif
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-12">
