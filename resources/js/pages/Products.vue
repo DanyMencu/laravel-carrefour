@@ -14,7 +14,7 @@
 import axios from "axios"
 import Card from "../components/Card"
 export default {
-    name: 'Products',
+    name: 'products',
     components: {
         Card,
     },
