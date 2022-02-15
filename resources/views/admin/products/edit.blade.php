@@ -14,7 +14,7 @@
     </div>
     @endif
 
-    <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
+    <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -102,6 +102,21 @@
                 <div class="text-danger">{{$message}}</div>
                 @enderror
             </div>
+
+        {{-- Cover --}}
+        <div class="mb-3">
+            <label class="form-label" for="cover">product image</label>
+            @if($product->cover)
+            <figure class="mb-3">
+            <img width="200" src="{{ asset('storage/' . $product->cover) }}" alt="{{ $product->name }}">
+            </figure>
+            @endif
+
+            <input type="file" class="form-control-file" name="cover" id="cover">
+            @error('cover')
+            <div class="text-danger">{{$message}}</div>
+            @enderror
+        </div>
 
             <button class="btn btn-success">Edit product</button>
     </form>

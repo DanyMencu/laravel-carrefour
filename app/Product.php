@@ -14,6 +14,7 @@ class Product extends Model
         'price',
         'type_id',
         'category_id',
+        'cover'
     ];
 
     //Relation with Categories

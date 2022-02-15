@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Category;
 use App\Product;
 use App\Allergen;
@@ -56,6 +57,12 @@ class ProductsController extends Controller
 
         //Register a new product
         $data = $request->all();
+
+        //Add image cover
+        if(array_key_exists('cover',$data)){
+            $img_path = Storage::put('product-covers',$data['cover']);
+            $data['cover'] = $img_path;
+        }
 
         $new_product = new Product();
 
@@ -135,6 +142,15 @@ class ProductsController extends Controller
 
         $product = Product::find($id);
 
+        //Update cover image 
+        if(array_key_exists('cover',$data)){
+            if($product->cover){
+                Storage::delete($product->cover);
+            }
+
+            $data['cover'] = Storage::put('product-covers',$data['cover']);
+        }
+
         //Slug update if name is changed
         if ($data['name'] != $product->name) {
             //Gen unique slug
@@ -174,6 +190,7 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
+
         if ($product) {
             $product->delete();
             return redirect()->route('admin.products.index')->with('message', $product->name);
@@ -191,6 +208,7 @@ class ProductsController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'type_id' => 'nullable|exists:types,id',
             'allergens' => 'nullable|exists:allergens,id',
+            'cover' => 'nullable|file|mimes:jpeg,bmp,png'
         ];
     }
 
