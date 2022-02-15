@@ -2,7 +2,11 @@
     <header class="mb-3">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">
-                <!-- <img src="../../../public/images/carrefour-logomark.svg" alt="logo-carrefour" class="logo"> -->
+                <!-- <img
+                    src="./../../../public/images/carrefour-logomark.svg"
+                    alt="logo-carrefour"
+                    class="logo"
+                /> -->
                 Carrefour
             </a>
 
@@ -31,20 +35,19 @@
 
 <script>
 export default {
-    name: 'Headers',
-
-}
+    name: "Header",
+};
 </script>
 
 <style lang="scss" scoped>
 * {
     color: #fff;
 }
-    header {
-        background-color: #1b3d79;
-    }
-    .active {
-        background: rgba(#fff, .1);
-        border-radius: 30px;
-    }
+header {
+    background-color: #1b3d79;
+}
+.active {
+    background: rgba(#fff, 0.1);
+    border-radius: 30px;
+}
 </style>
