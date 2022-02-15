@@ -1,28 +1,25 @@
 <template>
-    <div class="content">
-        <div class="title m-b-md">
-            Carrefour Front-office Site HERE
-        </div>
+    <div>
+        <Header />
+
+        <main>
+        <!-- <router-view></router-view> -->
+        </main>
+
     </div>
 </template>
 
 <script>
+import Header from '../components/Header';
+
 export default {
     name: "App",
-    component: {},
+    components: {
+        Header,
+    },
 }
 </script>
 
 <style lang="scss">
-    .content {
-        text-align: center;
-    }
 
-    .title {
-        font-size: 84px;
-    }
-
-    .m-b-md {
-        margin-bottom: 30px;
-    }
 </style>
