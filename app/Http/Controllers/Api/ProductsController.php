@@ -17,11 +17,13 @@ class ProductsController extends Controller
     public function show($slug) {
 
         // prendo il post con categorie, allergeni e type
-        $product = Product::where('slug', $slug)->with('category', 'allergen', 'type')->first();
+        $product = Product::where('slug', $slug)->with('category', 'allergens', 'type')->first();
 
-        // if(! $product) {
-        //     $product['not_found'] = true;
-        // } elseif()
+         if(! $product) {
+             $$product['not_found'] = true;
+         } elseif($product->cover) {
+             $product->cover = url('storage/' . $product->cover);
+         }
 
         return response()->json($product);
     }

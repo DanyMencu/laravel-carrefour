@@ -2,11 +2,11 @@
     <header class="mb-3">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">
-                <img
+                <!-- <img
                     src="./../../../public/images/carrefour-logomark.svg"
                     alt="logo-carrefour"
                     class="logo"
-                />
+                /> -->
                 Carrefour
             </a>
 
