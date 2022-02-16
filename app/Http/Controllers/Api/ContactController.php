@@ -26,7 +26,7 @@ class ContactController extends Controller
             ]);
         }
 
-        $data = $request->request->all();
+        $data = $request->all();
 
         //save in db
         $contact = new Contact();
@@ -41,7 +41,6 @@ class ContactController extends Controller
 
 
 
-        $data = $request->all();
         return response()->json($data);
     }
 }

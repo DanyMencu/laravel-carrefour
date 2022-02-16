@@ -23,4 +23,7 @@ Route::namespace('Api')->group(function () {
 
     // single product detail
     Route::get('/products/{slug}', 'ProductsController@show');
+
+
+    Route::resource('/contacts', 'ContactController'); //<-------importante
 });
