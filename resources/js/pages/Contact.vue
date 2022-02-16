@@ -1,6 +1,9 @@
 <template>
     <div class="container">
         <h1 class="my-5">Contattaci</h1>
+        <div v-show="success" class="alert alert-success">
+            I Dati sono stati invati con successo.
+        </div>
         <section class="row">
             <div class="col">
                 <form @submit.prevent="postForm">
@@ -57,7 +60,8 @@ export default {
             name:'',
             email: '',
             message:'',
-            errors: {}
+            errors: {},
+            success: false,
         }
     },
     methods: {
@@ -68,19 +72,24 @@ export default {
                 message: this.message,
             })
             .then(res => {
-                console.log(res.data);
+                //console.log(res.data);
 
                 if(res.data.errors) {
                     this.errors = res.data.errors
+                    this.success = false;
                 } 
                 else {
                     this.name = '';
                     this.email = '';
                     this.message = '';
+
+                    //feedback
+                    this.errors = {};
+                    this.success = true;
                 }
 
             })
-            .catch(err => log.error(err));
+            .catch(err => console.log(err));
         }
     }
 }
