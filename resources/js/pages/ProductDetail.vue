@@ -44,7 +44,7 @@
             </div>
             <!-- Immagine -->
             <div v-if="product.cover" class="col-md-6 p-3">
-                <figure class="img-product" v-if="product.cover">
+                <figure class="d-flex justify-content-center" v-if="product.cover">
                     <img :src="product.cover" :alt="product.title" />
                 </figure>
             </div>
