@@ -21,5 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Api')->group(function () {
     Route::get('/products', 'ProductsController@index');
 
+    // single product detail
     Route::get('/products/{slug}', 'ProductsController@show');
 });

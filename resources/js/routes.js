@@ -37,7 +37,6 @@ const router = new VueRouter({
             name: "contact",
             component: Contact,
         },
-
         {
             path: "*",
             name: "not-found",
