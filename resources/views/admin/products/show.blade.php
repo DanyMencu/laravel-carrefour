@@ -25,7 +25,11 @@
         </div>
         <div class="col-12 col-lg-5 ms-lg-5">
             <h5 class="mb-0">Image: </h5>
+            @if($product->cover)
+            <img class="img-fluid" src="{{ asset('storage/' . $product->cover) }}" alt="{{ $product->name }}">
+            @else
             <img src="{{ asset('images/' . $product->name . '.jpg') }}" alt="{{ $product->name }}">
+            @endif
         </div>
     </div>
 

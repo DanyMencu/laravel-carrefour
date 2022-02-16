@@ -2,8 +2,15 @@
     <header class="mb-3">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">
+<<<<<<< HEAD
+=======
+                <img src="https://www.carrefour.it/on/demandware.static/Sites-carrefour-IT-Site/-/default/dw44a8db04/images/carrefour-logomark.svg" alt="logo-carrefour" class="logo">
+>>>>>>> master
                 Carrefour
             </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -14,8 +21,7 @@
                     </li>
                     <!-- Products -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Our Products</a>
-                        <!-- <router-link class="nav-link" :to="{name: 'products'}">Our Products</router-link> -->
+                        <router-link class="nav-link" :to="{name: 'products'}">Our Products</router-link>
                     </li>
                     <!-- Contact -->
                     <li class="nav-item">
@@ -29,7 +35,7 @@
 
 <script>
 export default {
-    name: 'Headers',
+    name: 'Header'
 
 }
 </script>
