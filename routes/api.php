@@ -18,9 +18,15 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // }); 
 
-Route::namespace('Api')->group(function(){
+Route::namespace('Api')->group(function () {
     Route::get('/products', 'ProductsController@index');
 
+<<<<<<< HEAD
+    //Contatti
+    Route::post('/contacts', 'ContactController@store');
+});
+=======
     // single product detail
     Route::get('/products/{slug}', 'ProductsController@show');
 });
+>>>>>>> master
