@@ -191,6 +191,11 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
 
+        //Remouve local cover if already exists
+        if ($product->cover) {
+            Storage::delete($product->cover);
+        }
+
         if ($product) {
             $product->delete();
             return redirect()->route('admin.products.index')->with('message', $product->name);
