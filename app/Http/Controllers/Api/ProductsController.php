@@ -10,6 +10,13 @@ class ProductsController extends Controller
 {
     public function index(){
         $products = Product::all();
+
+        foreach ($products as $product) {
+            if($product->cover) {
+                $product->cover = url('storage/' . $product->cover);
+            }
+        }
+
         return response()->json($products);
     }
 
