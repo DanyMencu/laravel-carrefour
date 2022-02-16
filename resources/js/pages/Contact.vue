@@ -7,14 +7,35 @@
                     <div class="mb-3">
                         <label class="form-label" for="name">Nome*</label>
                         <input class="form-control" type="text" id="name" placeholder="Inserisci il tuo Nome" v-model="name">
+                        <div
+                            v-for="(error, index) in errors.name"
+                            :key="`err-name-${index}`"
+                            class="text-danger"
+                        >
+                            {{ error }}
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="email">email*</label>
+                        <label class="form-label" for="email">Email*</label>
                         <input class="form-control" type="text" id="email" placeholder="Inserisci la tua email" v-model="email">
+                        <div
+                            v-for="(error, index) in errors.email"
+                            :key="`err-email-${index}`"
+                            class="text-danger"
+                        >
+                            {{ error }}
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="message">Messaggio*</label>
                         <textarea class="form-control" id="message" rows="5" v-model="message"></textarea>
+                        <div
+                            v-for="(error, index) in errors.message"
+                            :key="`err-message-${index}`"
+                            class="text-danger"
+                        >
+                            {{ error }}
+                        </div>
                     </div>
 
                     <button type="submit" class="btn">
@@ -36,6 +57,7 @@ export default {
             name:'',
             email: '',
             message:'',
+            errors: {}
         }
     },
     methods: {
@@ -47,6 +69,16 @@ export default {
             })
             .then(res => {
                 console.log(res.data);
+
+                if(res.data.errors) {
+                    this.errors = res.data.errors
+                } 
+                else {
+                    this.name = '';
+                    this.email = '';
+                    this.message = '';
+                }
+
             })
             .catch(err => log.error(err));
         }
