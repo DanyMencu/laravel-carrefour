@@ -3,11 +3,7 @@
         <Header />
 
         <main>
-<<<<<<< HEAD
-        <router-view></router-view>
-=======
             <router-view></router-view>
->>>>>>> master
         </main>
     </div>
 </template>
