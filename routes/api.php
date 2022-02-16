@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // }); 
 
-Route::namespace('Api')->group(function(){
+Route::namespace('Api')->group(function () {
     Route::get('/products', 'ProductsController@index');
 
     // single product detail

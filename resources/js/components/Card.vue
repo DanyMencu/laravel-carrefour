@@ -2,7 +2,7 @@
   <section>
     <div class="card">
       <div class='img-container'>
-        <img src="" alt="img da caricare nell'api" class="img-fluid">
+        <img :src="product.cover" :alt="product.title" class="img-fluid">
       </div>
       <router-link :to="{name: `ProductDetail`, params:{slug: product.slug}}"><span class="product-name">{{product.name}}</span></router-link>
       <h5 class='mt-4'>€ {{product.price}}</h5>

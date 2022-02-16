@@ -34,7 +34,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('admin.home') }}">
-                    <img src="{{asset('images/carrefour-logomark.svg')}}" alt="logo-carrefour" class="logo">
+                    <img src="https://www.carrefour.it/on/demandware.static/Sites-carrefour-IT-Site/-/default/dw44a8db04/images/carrefour-logomark.svg" alt="logo Carrefour" class="logo">
                     Carrefour
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"

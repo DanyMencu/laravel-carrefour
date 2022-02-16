@@ -213,7 +213,7 @@ class ProductsController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'type_id' => 'nullable|exists:types,id',
             'allergens' => 'nullable|exists:allergens,id',
-            'cover' => 'nullable|file|mimes:jpeg,bmp,png'
+            'cover' => 'nullable|file|mimes:jpg,jpeg,bmp,png,webp',
         ];
     }
 

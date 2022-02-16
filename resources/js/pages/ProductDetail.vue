@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row" v-if="product">
-            <div class="col-12 col-md-6">
+            <div class="col-12 text-center mb-3">
                 <!-- Nome -->
                 <h1 class="my-4 product-name">{{ product.name }}</h1>
                 <!-- Prezzo -->
@@ -33,6 +33,8 @@
                 <h4 class="badge badge-success mb-3" v-else>
                     Questo prodotto non contiene allergeni
                 </h4>
+            </div>
+            <div :class="product.cover ? 'col-6' : 'col-12'">
                 <!-- Descrizione -->
                 <p class="description mb-4">{{ product.description }}</p>
                 <div class="btn btn-success">
@@ -40,21 +42,26 @@
                     Acquista
                 </div>
             </div>
-            <div class="col-12 col-md-6 p-3">
-                <figure class="img-product" v-if="product.cover">
+            <!-- Immagine -->
+            <div v-if="product.cover" class="col-md-6 p-3">
+                <figure class="d-flex justify-content-center" v-if="product.cover">
                     <img :src="product.cover" :alt="product.title" />
                 </figure>
             </div>
         </div>
-        <div v-else>Loading!</div>
+        <Loader v-else/>
     </div>
 </template>
 
 <script>
 import axios from "axios";
+import Loader from "../components/Loader";
 
 export default {
     name: "ProductDetail",
+    components: {
+        Loader,
+    },
     data() {
         return {
             product: null,
