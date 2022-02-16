@@ -2,7 +2,7 @@
     <header class="mb-3">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="#">
-                <img src="./../../../public/images/carrefour-logomark.svg" alt="logo-carrefour" class="logo">
+                <img src="./../../../resources/images/carrefour-logomark.svg" alt="logo-carrefour" class="logo">
                 Carrefour
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,8 +18,7 @@
                     </li>
                     <!-- Products -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Our Products</a>
-                        <!-- <router-link class="nav-link" :to="{name: 'products'}">Our Products</router-link> -->
+                        <router-link class="nav-link" :to="{name: 'products'}">Our Products</router-link>
                     </li>
                     <!-- Contact -->
                     <li class="nav-item">
