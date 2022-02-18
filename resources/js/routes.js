@@ -4,11 +4,11 @@ import VueRouter from 'vue-router';
 
 //Components
 import Home from './pages/Home';
-/*
+
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
-*/
+
 
 //Active VueRouter in Vue
 Vue.use(VueRouter);
@@ -23,7 +23,6 @@ const router = new VueRouter({
             name: 'home',
             component: Home,
         },
-/*
         {
             path: '/products',
             name: 'products',
@@ -38,7 +37,7 @@ const router = new VueRouter({
             path: '*',
             name: 'not-found',
             component: NotFound,
-        },*/
+        },
     ],
 });
 
