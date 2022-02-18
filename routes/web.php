@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('guests.home');
-});
-
 Auth::routes();
 
 //Admin route
