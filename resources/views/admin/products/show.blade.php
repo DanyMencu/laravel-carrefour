@@ -10,7 +10,7 @@
     <div class="row">
         <h1 class="my-4">{{$product->name}}
             @if ($product->category_id === 2)
-                <img src="{{ asset('images/ice.jpg') }}" alt="Frozen" class="frozen-icon">
+                <img src="https://cdn-icons-png.flaticon.com/128/4669/4669912.png" alt="Frozen" class="frozen-icon">
             @endif
         </h1>
     </div>
@@ -25,7 +25,11 @@
         </div>
         <div class="col-12 col-lg-5 ms-lg-5">
             <h5 class="mb-0">Image: </h5>
-            <img src="{{ asset('images/' . $product->name . '.jpg') }}" alt="{{ $product->name }}">
+            @if($product->cover)
+            <img class="img-fluid" src="{{ asset('storage/' . $product->cover) }}" alt="{{ $product->name }}">
+            @else
+            <img class="img-fluid" src="https://webartdevelopers.com/blog/wp-content/uploads/2018/09/404-SVG-Animated-Page-Concept.png" alt="{{ $product->name }}">
+            @endif
         </div>
     </div>
 
